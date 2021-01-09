@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Headfirst functions</title>
+</head>
+<body>
+<script>
+function bark(name, weight) {
+    if(weight > 20) {
+        console.log(name + " says WOOOOF WOOOOF"); // big dog c:
+    } else {
+        console.log(name + " says woof woof");
+    }
+}
+bark("rover", 23);
+bark("gigi", 13);
+bark("spike", 53);
+bark("lady", 17);
+// console:
+// rover says WOOOOF WOOOOF
+// gigi says woof woof
+//spike says WOOOOF WOOOOF
+// lady says woof woof
+console.log("-----------")
+
+
+function makeTea(cups, tea) {
+    console.log("Brewing" + " " + cups + " " + "cups of" + " " + tea);
+}
+makeTea(3);
+//  Brewing 3 cups of undefined
+makeTea(2, "English breakfast", 13341.1, "good day", 53, "213eidjiof8e2@")
+// Brewing 2 cups of English breakfast
+console.log("-----------");
+
+
+console.log("Function without params:")
+function barkAtTheMoon() {
+    console.log("Woooooooooooooo!");
+}
+barkAtTheMoon();
+// Woooooooooooooo!
+
+</script>
+</body>
+</html>
