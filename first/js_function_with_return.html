@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>return</title>
+</head>
+<body>
+<script>
+    function bake(degrees) {
+        // function get temperature of bake in degrees
+        let message;
+        if (degrees > 500) {
+            message = "I'm not a nuclear reactor!";
+        } else if (degrees < 100) {
+            message = "I'm not a refrigerator!";
+        } else {
+            message = "That's a very comfortable temperature for me.";
+            // // setMode("bake");
+            // setTemp(degrees);
+        }
+        return message; // return execution result cycle
+    }
+    let status = bake(350);
+    console.log(status);
+    // That's a very comfortable temperature for me.
+    console.log("-------------")
+
+
+    function calculateArea(r) {
+        let area;
+        if (r <= 0) {
+            return 0;
+        } else {
+            area = Math.PI * r * r;
+            return area;
+        }
+    }
+    let radius = 5.2;
+    let theArea = calculateArea(radius);
+    console.log("The area is: " + theArea);
+    // The area is: 84.94866535306801
+</script>
+</body>
+</html>
