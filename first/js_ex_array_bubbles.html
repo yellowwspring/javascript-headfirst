@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Bubbles</title>
+</head>
+<body>
+<script>
+
+    let scores = [60, 50, 60, 58, 54, 54,
+        58, 50, 52, 54, 48, 69,
+        34, 55, 51, 52, 44, 51,
+        69, 64, 66, 55, 52, 61,
+        46, 31, 57, 52, 44, 18,
+        41, 53, 55, 61, 51, 44];
+    let highScore = 0;
+    let output;
+    let count = 0;
+    // счётчик инициализируется
+    for(let i = 0; i < scores.length; i++) {
+        output = "Bubble solution #" + i + " score: " + scores[i];
+        console.log(output);
+        if(scores[i] > highScore) {
+            highScore = scores[i];
+        }
+    }
+    console.log("Bubbles tests: " + scores.length);
+    console.log("Highest bubble score: " + highScore);
+
+    let bestSolutions = [];
+    for (let i = 0; i < scores.length; i++) {
+        if (scores[i] == highScore) {
+            bestSolutions.push(i);
+        }
+    }
+    console.log("Solutions with the highest score: " + bestSolutions);
+    // Bubble tests : 36
+    // Highest bubble score: 69
+    // Solutions with the highest score: 11, 18
+    console.log("---------------------------------------")
+
+
+
+    // example №1:
+    while(count < scores.length) {
+        // счётчик проверяется в условном выражении
+        output = "Bubble solution #" + count + " score: " + scores[count];
+        console.log(output);
+        count = count + 1;
+    }  // после выполнения всех команд в теле функции, счётчик увеличивается
+
+
+    console.log("---------------------")
+    // example №2:
+    for(let count = 0; count < scores.length; count = count + 1) {
+        output = "Bubble solution #" + count + " score: " + scores[count];
+        console.log(output);
+    }
+</script>
+</body>
+</html>
