@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object: car</title>
+<script>
+    // HOW TO CREATE OBJECT
+    let chevy = {
+        make: "Chevy",
+        model: "Bel Air",
+        year: 1957,
+        color: "Red",
+        passengers: 2,
+        convertible: false,
+        mileage: 1021
+        // свойства разделяются ЗАПЯТЫМИ // properties are separated by commas
+    }; // как в случае объявления любой другой переменной, после объекта ставится точка с запятой
+    //as in the case of declaring any other variable, a semicolon is placed after the object
+
+    let cadi = {
+        make: "Cadillac",
+        model: "GM Cadillac",
+        year: 1955,
+        color: "Tan",
+        passengers: 5,
+        convertible: false,
+        mileage: 12892
+    };
+
+
+
+
+    let fiat = {
+        make: "Fiat",
+        model: "500",
+        year: 1957,
+        color: "Medium Blue",
+        passengers: 2,
+        convertible: false,
+        mileage: 88000,
+        started: false,
+        fuel: 0,
+
+        // существует ключевое слово this,которое предназначено именно для этой цели:
+        // оно обозначает текущий объект, с которым мы работаем.
+        start: function (){
+            this.started = true;
+        },
+        stop: function(){
+            this.started = false;
+        },
+        // function(--> method) may added in object
+        drive: function (){
+            if(this.started) {
+                if (this.fuel > 0) {
+                    alert(this.make + " " + this.model + " goes zoom zoom!");
+                    this.fuel = this.fuel - 1;
+                } else {
+                    alert("Uh Oh , out of fuel.");
+                    this.stop();
+                }
+            } else {
+                alert("You need to start the engine first.")
+            }
+        },
+        addFuel: function (amount){
+            this.fuel = this.fuel + amount;
+        }
+    };
+    fiat.start();
+    fiat.drive();
+    fiat.addFuel(2);
+    fiat.start();
+    fiat.drive();
+    fiat.drive();
+    fiat.drive();
+    fiat.stop();
+
+
+
+
+
+
+
+
+
+
+    // HOW TO ACCESS A PROPERTY| КАК ОБРАТИТЬСЯ К СВОЙСТВУ:
+    let miles_of_fiat = fiat.mileage; // to access a property! fiat - object, mileage - property of object
+    if(miles_of_fiat < 2000) {
+       // buyIt();
+    }
+
+    // HOW TO CHANGE A PROPERTY| КАК ИЗМЕИТЬ СВОЙСТВО:
+    fiat.mileage = 10000;
+
+    // HOW TO ADD A NEW PROPERTY| КАК ДОБАВИТЬ НОВОЕ СВОЙСТВО:
+    fiat.needsWashing = true;
+
+    // How to perform calculations with properties | Как выполнять вычисления со свойствами:
+    if (fiat.year < 1965) {
+        classic = true;
+    }
+    for (let i = 0; i < fiat.passengers; i++) {
+        //addPersonToCar();
+    }
+
+    // HOW TO DELETE A PROPERTY|КАК УДАЛИТЬ СВОЙСВТО:
+    delete cadi.color;
+    // if I want to refer to a property cadi.color, the result will be --> undefined
+
+    // OBJECT WITHOUT PROPERTIES:
+    let cat = { };
+    cat.age = 3;  // added a new property
+    if(cat.age > 1) {
+        cat.adulthood = true;  // added a new property because cat.age(=3) > 1
+    }
+
+    // объект невозможно вместить в переменную, хотя мы часто
+    //думаем о происходящем именно так. Но не существует гигантских расширяемых переменных,
+    // подстраивающихся под любой размер объекта. Просто объектная переменная содержит ссылку на объект.
+
+    let car = { };
+    // variable keeps a link of object
+    let taxi = {
+        make: "Webville Motors",
+        model: "Taxi",
+        year: 1955,
+        color: "yellow",
+        passengers: 4,
+        convertible: false,
+        mileage: 281341
+    };
+    function prequal(car){
+        if(car.mileage > 10000){
+            return false;
+        } else if (car.year > 1969){
+                return false;
+        }
+        return true;
+        }
+    let wortALook = prequal(taxi);
+
+    if(wortALook){
+        console.log("You gotta check out this " + taxi.make + " " + taxi.model);
+    } else {
+        console.log("You should really pass on the " + taxi.make + " " + taxi.model);
+    }
+    console.log(prequal(cadi));
+</script>
+</head>
+<body></body>
+</html>
