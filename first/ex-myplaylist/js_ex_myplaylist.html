@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My playlist</title>
+    <script>
+        function addSongs() {
+            let lanadelrey = document.getElementById("lanadelrey");
+            let saluki = document.getElementById("saluki");
+            let kirkorov = document.getElementById("kirkorov");
+
+            lanadelrey.innerHTML = "Blue jeans, white shirt...";
+            saluki.innerHTML = "город знает вкус твоих слёз...";
+            kirkorov.innerHTML = "если хочешь идти - иди...";
+        }
+        window.onload = addSongs;
+    </script>
+</head>
+<body>
+<h1>My awesome playlist</h1>
+<ul id="playlist">
+    <li id="lanadelrey"></li>
+    <li id="saluki"></li>
+    <li id="kirkorov"></li>
+</ul>
+
+</body>
+</html>
