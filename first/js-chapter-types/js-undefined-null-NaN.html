@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Types</title>
+</head>
+<body>
+<h1>Undefined - "неопределёный"</h1>
+    <ul>
+        <li>
+            undefined — это значение, которое присваивается тому, что еще не
+            имеет значения (другими словами, не было инициализировано)
+        </li>
+        <li>
+            Какая польза от undefined? Оно позволяет проверить, было ли присвое-
+            но значение переменной (или свойству, или элементу массива).
+        </li>
+        <li>
+            значение undefined относится к типу Undefined.
+            это не объект, не число, не строка и не булевское значение... И вообще ничто
+            определенное. Так почему бы не назначить этой неопределенности
+            "неопределенный"
+        </li>
+    </ul>
+<h1> Operator typeof - оператор проверки типов</h1>
+<ul>
+<li> записывается следующим образом: let x = 2; let qqq = typeof x;</li>
+</ul>
+<h1> null - значение используется для представления несуществующих объектов</h1>
+<ul>
+    <li> Во многих языках существует концепция значения, представляющего «отсутствие объекта».
+         И это вполне нормально — возьмем хотя бы метод document.
+        getElementById. Он ведь должен возвращать объект, верно? А что
+        произойдет, если он не сможет вернуть объект? Тогда он должен
+        вернуть какой-то признак, означающий: «Здесь мог бы быть объект,
+        но, к сожалению, его нет». Именно этот смысл заложен в null.</li>
+    <li>  null чаще всего используется там, где объект еще не создан или не найден,
+        а undefined — для неинициализированных переменных, отсутству-
+        ющих свойств объектов или отсутствующих значений в массивах.</li>
+    <li>
+        Следует учитывать, что получение null не всегда означает, что что-то пошло
+        не так. Это может означать, что объект еще не существует и его нужно создать
+        или его нужно пропустить при обработке. Пользователь может открыть или
+        закрыть погодный виджет на сайте. Если виджет открыт, то в DOM существует
+        элемент div с идентификатором “weatherDiv”, а если закрыт — такого элемента
+            нет. Так польза от null становится очевидно
+    </li>
+</ul>
+<h1> NaN - числовые значения, которые невозможно
+    представить в JavaScript</h1>
+<ul>
+    <li>
+        В JavaScript используется значение NaN (сокращение от “Not a Number”,
+        то есть «не число») для представления
+        числовых результатов... не имеющих
+        представления. Для примера возьмем
+        0/0. Результат 0/0 не имеет собственного
+        представления на компьютере, поэтому
+        в JavaScript он представляется специальным значением NaN.
+    </li>
+    <li>
+        Оно не только представляет все числовые
+        значения, не имеющие
+        собственного представления; это единственное значение в JavaScript, не равное
+        самому себе!
+        <p> NaN != NaN</p>
+    </li>
+
+</ul>
+<script>
+    //можно проверить, была ли инициализирована переменная. Просто сравниваю ее с undefined.
+    let x;
+    if (x == undefined) {
+            // variable not initialized
+    }
+
+    let customer = {
+        name: "Jenny"
+    };
+    if (customer.phoneNumber == undefined){
+        // get a client's phone
+    }
+
+    // typeof - оператор проверяющий тип операнда
+    let subject = "Just a string";
+    let probe = typeof subject;
+    console.log(probe); // in console:  string
+    // check types of next variables:
+    let test1 = "abcdef";
+    let test2 = 123;
+    let test3 = true;
+    let test4 = {};
+    let test5 = [];
+    let test6;
+    let test7 = {"abcdef": 123};
+    let test8 = ["abcdef", 123];
+    function test9(){return "abcdef"};
+    console.log(typeof test1); //string
+    console.log(typeof test2); //number
+    console.log(typeof test3); //boolean
+    console.log(typeof test4); // object
+    console.log(typeof test5);// object
+    console.log(typeof test6);// undefined
+    console.log(typeof test7); //object
+    console.log(typeof test8); // object
+    console.log(typeof test9); // function
+
+
+    // null
+    let test_null = null;
+    console.log(typeof null); // in console: object
+    //HOW TO USE null:
+    let header = document.getElementById("header");
+    if(header == null) {
+        // заголовоек не существует
+    }
+    let weather = document.getElementById("weatherDiv");
+    if (weather != null) {
+// Создание содержимого для погодного виджета
+    }
+    /*Если результат getElementById отличен
+    от null, значит, на странице существует
+    такой элемент. */
+
+
+    // NaN - числовые значения, которые невозможно представить в JavaScript
+    let a = 0/0; // на ноль делить нельзя
+    console.log(a);
+    let b = "food" * 100; // не число
+    console.log(b);
+    let c = Math.sqrt(-9); // нельзя вычислить корень из отрицательного числа
+    console.log(c);
+
+    // работа с NaN:
+    // if(isNaN(myNum)) { //Функция isNaN возвращает true, если переданное ей значение не является числом.
+    //     myNum = 0;
+    // }
+    // NaN через typeof:
+    let nan_test = 0/0;
+    console.log(nan_test); // in console : number
+
+</script>
+</body>
+</html>
