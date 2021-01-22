@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>image blur</title>
+    <style>
+        body{margin: 20px;}
+        img{margin: 20px;}
+    </style>
+    <script>
+        let image = document.getElementById("zero");
+        // получаем ссылку на элемент и присваиваем её переменной image
+        window.onload = init;
+        /*создаем функцию init и назначаем ее обработчику onload, чтобы она
+        гарантированно выполнялась только после полной загрузки страницы*/
+        function init(){
+            let images = document.getElementsByTagName("img");
+            for(let i = 0 ; i < images.length; i ++) {
+                images[i].onclick = showAnswer;
+            }
+        }
+
+        function showAnswer(eventObj){
+            let image = eventObj.target;
+            //Свойство target сообщает, какой элемент сгенерировал данное событие.
+            let name = image.id;
+            name = name + ".jpg";
+            image.src = name;
+            // Получив элемент, мы можем изменить его, назначая свойству src неразмытую версию изображения.
+        }
+    </script>
+</head>
+<body>
+<img id="zero" src="zeroblur.jpg">
+<img id="one" src="oneblur.jpg">
+<img id="two" src="twoblur.jpg">
+<img id="three" src="threeblur.jpg">
+<img id="four" src="fourblur.jpg">
+<img id="five" src="fiveblur.jpg">
+</body>
+</html>
