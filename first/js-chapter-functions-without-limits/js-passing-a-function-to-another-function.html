@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>passing function</title>
+</head>
+<style>
+    body{
+        background-image: linear-gradient(120deg, dimgrey, grey);
+        font-family: sans-serif;
+    }
+</style>
+<script>
+    let passengers = [ { name: "Jane Doloop", paid: true , goodMoon : true},// objects with properties name and paid in array
+        { name: "Dr. Evel", paid: true , goodMoon: false},
+        { name: "Sue Property", paid: false, goodMoon: true },
+        { name: "John Funcall", paid: true , goodMoon: true } ];
+
+    // функция перебирает пассажиров
+    function processPassengers(passengers, testFunction) {
+        for (let i = 0; i < passengers.length; i++) {
+            if (testFunction(passengers[i])) {
+                return false;
+                /*Если проверочная функция возвращает true, то мы возвращаем false. Иначе говоря,
+                если пассажир не прошел проверку (не заплатил за билет, входит в «черный список» и т. д.),  вылет следует запретить! */
+            }
+        }
+        return true;
+        //Если управление передано в этуточку, значит, все пассажиры прошли проверку, и функция возвращает true.
+    }
+    function checkMood(passenger) {
+        return (passenger.goodMoon)
+    }
+
+    /*Эта функция проверяет, входит ли пассажир в «черный список».
+    Наш «черный список» прост: полеты разрешены всем, кроме доктора Зло.
+    Для всех остальных пассажиров возвращается false (то есть пассажир
+    не входит в «черный список»). */
+
+    function checkNoFlyList(passenger) {
+        return (passenger.name === "Dr. Evel");
+    }
+
+
+
+   /*  функция проверяет, заплатил ли пассажир за билет.
+    Для этого достаточно проверить свойство paid объекта пассажира.
+    Если билет не оплачен, возвращаем true.            */
+    function checkNotPaid(passenger) {
+        return (passenger.paid);
+    }
+
+    // ПЕРЕДАЧА ФУНКЦИИ ДРУГОЙ ФУНКЦИИ:
+    let allCanFly = processPassengers(passengers, checkNoFlyList);
+    if (!allCanFly) {
+        console.log("Самолёт не полетит: в салоне человек из черного списка!");
+    }
+
+    let allPaid = processPassengers(passengers, checkNotPaid);
+    if(!allPaid) {
+        console.log("Самолет не полетит , так как не все оплатили билет")
+    }
+
+
+
+
+
+
+
+</script>
+<body>
+<h1>Передача функции другой функции:</h1>
+<h2> ПРИМЕР С ПАССАЖИРАМИ стр 467</h2>
+список пассажиров: <br>
+<br>
+let passengers = [ { name: "Jane Doloop", paid: true },<br>
+{ name: "Dr. Evel", paid: true },<br>
+{ name: "Sue Property", paid: false },<br>
+{ name: "John Funcall", paid: true } ];<br>
+</body>
+</html>
