@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event mouse</title>
+</head>
+<body>
+<header id="title-page"> Event mouse</header>
+<div id="square" style="width: 100px; height: 100px; background: orange"></div>
+<script>
+    // переменная block - элемент div с id "square"
+    let block = document.getElementById('square');
+    // изменение цвета при клике мыши
+    block.onclick = function () {
+        this.style.background = "red";
+    }
+    // изменение цвета при двойном нажатии мыши
+    block.ondblclick = function () {
+        this.style.borderRadius = "10px";
+    }
+    // контекстное меню/клик правой кнопкой мышь
+    // мышь на объекте
+    block.onmouseenter = function () {
+        this.style.background = "pink";
+    }
+</script>
+    </body>
+    </html>
