@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web-cola</title>
+</head>
+<body>
+<h1>WEB-COLA</h1>
+<p>Задание:</p>
+<ul>
+    <li> упорядочить сорта напитков</li>
+    <li>метод sort, который получает
+        функцию, сравнивающую два элемента массива, и сортирует массив
+        за вас. <br>Рассмотрим общую концепцию: алгоритмы сортировки хорошо известны, а самое замечательное заключается в том, что код
+        сортировки может повторно<br> использоваться для любого набора
+        элементов. Но возникает одна проблема: чтобы код сортировки
+        мог отсортировать конкретный набор элементов,<br> он должен уметь
+        сравнивать два произвольных элемента. Сопоставьте сортировку
+        набора чисел с сортировкой списка имен или набора объектов.<br>
+        Способ сравнения зависит от типа элементов: для чисел это опера-
+        торы <, > и == , для строк — алфавит (впрочем, в JavaScript можно
+        использовать операторы <, > и ==),<br> а для объектов может приме-
+        няться некоторый нестандартный способ сравнения, основанный
+        на значениях их свойств.</li>
+</ul>
+<script>
+    let products = [ { name: "Grapefruit", calories: 170, color: "red", sold: 8200 },
+        { name: "Orange", calories: 160, color: "orange", sold: 12101 },
+        { name: "Cola", calories: 210, color: "caramel", sold: 25412 },
+        { name: "Diet Cola", calories: 0, color: "caramel", sold: 43922 },
+        { name: "Lemon", calories: 200, color: "clear", sold: 14983 },
+        { name: "Raspberry", calories: 180, color: "pink", sold: 9427 },
+        { name: "Root Beer", calories: 200, color: "caramel", sold: 9909 },
+        { name: "Water", calories: 0, color: "clear", sold: 62123 }];
+    // sold - кол-во проданных за месяц
+
+    function compareSold(colaA, colaB){   // функция должна получить 2 продукта, а затем сравнить их
+        if(colaA.sold > colaB.sold) {
+            return 1;
+        } else if(colaA.sold === colaB.sold){
+            return 0;
+        } else{
+            return -1;
+        }
+    }
+    let sorting = products.sort(compareSold);
+    console.log(sorting);
+
+
+
+</script>
+
+</body>
+</html>
