@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anonymous functions</title>
+</head>
+<body>
+<p style="font-size: 28px">Анонимными называются функции, которые определяются без имени. <br>
+    Как такое возможно? Когда вы определяете функцию в объявлении функции, у этой функции безусловно <br>
+    существует имя. Но при определении функции с использованием <br>
+    функционального выражения присваивать функции имя не обязательно.</p>
+<script>
+    // usual function:
+    function handler(){
+        alert("Good-looking what's cooking");}
+    window.onload = handler();
+
+    // HOW USE TO ANONYMOUS FUNCTION:
+    window.onload = function() { alert("Yeah, that page loaded!"); }; // function without name
+
+
+    // example 2 - before:
+    function cookieAlarm(){
+        alert("Булочки готовы!!!");
+    }
+    setTimeout(cookieAlarm, 10000);
+    // now it is anonymous function! -- after:
+    setTimeout(function() {alert("Пирожки готовы!");}, 20000);
+
+
+</script>
+</body>
+</html>
