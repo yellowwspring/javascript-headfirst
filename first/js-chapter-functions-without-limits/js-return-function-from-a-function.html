@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+</head>
+<body>
+<header style="font-size: 50px;">Возвращение функции из функции</header>
+<script>
+    let passengers = [ { name: "Jane Doloop", paid: true, ticket: "coach" },
+        { name: "Dr. Evel", paid: true, ticket: "firstclass" },
+        { name: "Sue Property", paid: false, ticket: "firstclass" },
+        { name: "John Funcall", paid: true, ticket: "premium" } ];
+
+    function createDrinkOrder(passenger) {
+        let orderFunction;
+        if (passenger.ticket === "firstclass") {
+            orderFunction = function() {
+                alert("Would you like a cocktail or wine?");
+            };
+        } else if (passenger.ticket === "premium") {
+            orderFunction = function() {
+                alert("Would you like wine, cola or water?");
+            };
+            /* код для обработки пассажиров эконом-класса.Теперь  возвращаем одну из трех разных функций
+                   заказа в зависимости от типа билета, купленного пассажиром.*/
+        } else {
+            orderFunction = function() {
+                alert("Your choice is cola or water.");
+            };
+        }
+        return orderFunction;
+    }
+
+
+    function createDinnerOrder(passenger) {
+        let orderFunction;
+        if (passenger.ticket === "firstclass") {
+            orderFunction = function() {
+                /* добавляем новую функцию createDinnerOrder,которая генерирует функцию заказа обеда для пассажира.*/
+                alert("Would you like chicken or pasta?");
+            };
+        } else if (passenger.ticket === "premium") {
+            orderFunction = function() {
+                alert("Would you like a snack box or cheese plate?");
+            };
+            /* код для обработки пассажиров эконом-класса.Теперь  возвращаем одну из трех разных функций
+                   заказа в зависимости от типа билета, купленного пассажиром.*/
+        } else {
+            orderFunction = function() {
+                alert("Would you like peanuts or pretzels?");
+            };
+        }
+        return orderFunction;
+    } /* Функция работает по тому же принципу, что и createDrinkOrder: проверяет тип билета пассажира
+            и возвращает функцию заказа, адаптированную  для пассажира.*/
+
+    function serveCustomer(passenger) {
+        let getDrinkOrderFunction = createDrinkOrder(passenger);
+        let getDinnerOrderFunction = createDinnerOrder(passenger);
+        getDrinkOrderFunction();
+    // Предложить обед
+        getDinnerOrderFunction();
+        getDrinkOrderFunction();
+        getDrinkOrderFunction();
+    // Включить кино
+        getDrinkOrderFunction();
+    // Забрать мусор
+    }
+    function servePassengers(passengers) {
+        for (let i = 0; i < passengers.length; i++) {
+            serveCustomer(passengers[i]);
+        }
+    }
+    servePassengers(passengers);
+
+
+</script>
+</body>
+</html>
