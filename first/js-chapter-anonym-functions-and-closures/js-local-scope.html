@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>local scope</title>
+</head>
+<body>
+<script>
+    let justVariable = "I'm a global variable!"; // переменная
+
+    function whereAreYou(){
+        let justVariable = "I'm a local variable!"; // заменяющая локальная переменная
+
+        function nestedFunc(){ // вложенная функция
+            return justVariable;
+        }
+        return nestedFunc(); // вызов внутренней функции с внутренней переменной
+    }
+
+    console.log(whereAreYou()); //  I'm a local variable!
+
+
+</script>
+</body>
+</html>
