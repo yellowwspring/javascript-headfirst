@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>вложенные функции</title>
+</head>
+<body>
+<img src="SumatraPDF_qOq0ScNofN.png" style="height: 900px">
+<script>
+    let migrating = true;
+    let fly = function(num){
+        let sound = "Flying";
+        function wingFlapper(){
+            console.log(sound);
+        }
+        for(let i = 0; i < num; i ++) {
+            wingFlapper();
+        }
+    };
+
+    function quack (){
+        let sound = "Quack";
+        let quacker = function () {
+            console.log(sound);
+        }
+        for(let i = 0; i < num; i ++){
+            quacker();
+        }
+    }
+
+    if(migrating){
+        quack(4);
+        fly(4);
+    }
+</script>
+</body>
+</html>
