@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Handler</title>
+    <style>
+        body, button{
+            margin: 10px;
+        }
+        div{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="clickme">click me!</button>
+    <div id="message"></div>
+<!--   div - будет обновляться при каждом нажатии кнопки    -->
+
+
+
+<script>
+    window.onload = function (){
+        let count = 0;
+        let message = "You clicked me! ";
+        let div = document.getElementById("message");
+
+        let button = document.getElementById("clickme");
+        button.onclick = function (){
+            count++;
+            this.style.background = "red";
+            div.innerHTML = message + count + " times!";
+            console.log(div.innerHTML);
+        };
+        button.onmouseenter = function(){
+            this.style.background = "pink"
+        }
+    };
+</script>
+</body>
+</html>
