@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ЗАМЫКАНИЯ</title>
+</head>
+<body>
+<script>
+    function createCalcFunction(n){
+        return function (){
+            console.log(n * 3600 / 1000);
+        }
+    }
+    const calcMeterPerSecondInKmHour = createCalcFunction(3);
+    calcMeterPerSecondInKmHour(); // выведет в консоли 10.8пше шш
+</script>
+</body>
+</html>
