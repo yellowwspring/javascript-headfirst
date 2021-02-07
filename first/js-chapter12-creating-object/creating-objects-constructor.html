@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание конструктора объектов</title>
+</head>
+<body>
+<header> Создание объектов с использованием объектныъ литералов</header>
+<li> Литерал - полной описание объекта</li>
+</body>
+<script>
+    // конструктор
+    function Dog(name, weight, breed){
+        this.name = name;
+        this.weight = weight;
+        this.breed = breed;
+    }
+    // для создания объекта используется оператор new:
+    let fido = new Dog("Fido", 12, "Mixed");
+    let mimi = new Dog("Mimi", 25, "Poodle");
+    let spot = new Dog("Spot", 16, "Chihuahua");
+    let dogs = [fido, mimi, spot];
+
+    for(let i = 0; i < dogs.length; i ++){
+        let size = "small";
+        if(dogs[i].weight > 16){
+            size = "large";
+        }
+        console.log("Dog: " + dogs[i].name + " is a " + size + " " + dogs[i].breed);
+    }
+    // Dog: Fido is a small Mixed
+    // Dog: Mimi is a large Poodle
+    // Dog: Spot is a small Chihuahua
+
+
+
+</script>
+</html>
